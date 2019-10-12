@@ -1,14 +1,27 @@
 <h1>Welcome to Make or Break</h1>
 
-<form {{on "submit" this.submit}}>
+<form {{on "submit" (fn this.submit @model.me)}}>
   <label for="email">email</label>
-  <input type="text" name="email" value={{@model.me.email}} id="email" placeholder="Type your email" class="fullwidth" disabled>
+  <Input
+    @value={{@model.me.email}}
+    class="fullwidth"
+    disabled={{true}}
+    id="email"
+    name="email"
+    placeholder="Type your email"
+  />
 
   <label for="name">Name</label>
-  <input type="text" name="name" value={{@model.me.name}} id="name" placeholder="Type your name" class="fullwidth">
+  <Input
+    @value={{@model.me.name}}
+    class="fullwidth"
+    id="name"
+    name="name"
+    placeholder="Type your name"
+  />
 
   <label for="tshirtSize">T-Shirt Size</label>
-  <select name="tshirtSize" id="tshirtSize" class="fullwidth">
+  <select name="tshirtSize" id="tshirtSize" class="fullwidth" {{on 'change' (fn this.tshirtsize @model.me)}}>
     <option value="" disabled="">Choose your t-shirt size</option>
     <option value="XL" selected={{eq @model.me.tshirtSize "XL"}}>XL</option>
     <option value="L" selected={{eq @model.me.tshirtSize "L"}}>L</option>
@@ -18,6 +31,13 @@
 
   <label class="hackathon-participant clearfix">
   <span>I am interested in participating in the Make or Break hackathon</span>
+
+  <Input
+    @type="checkbox"
+    name="interested-in-hackathon"
+    @checked={{this.welcome.interestedInParticipatingInHackathon}}
+  />
+
   <div class="BinaryToggle">
   <span class="indicator">
   </span>

@@ -1,0 +1,5 @@
+#import 'mob-web-ng/gql/fragments/full-user'
+
+query {
+  me { ...fullUser }
+}

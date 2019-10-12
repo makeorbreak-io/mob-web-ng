@@ -1,0 +1,41 @@
+.BinaryToggle {
+  position: relative;
+  height: 30px;
+  min-width: 100px;
+  border-radius: 5px;
+  border: 1px solid #5d00f3;
+  display: inline-block;
+}
+.BinaryToggle .option {
+  position: relative;
+  display: inline-block;
+  line-height: 28px;
+  text-align: center;
+  width: calc(50% - 2px);
+  height: calc(100% - 2px);
+  font-weight: 700;
+  color: #5d00f3;
+  z-index: 10;
+  -webkit-transition: color .15s ease-in-out;
+  transition: color .15s ease-in-out;
+}
+.BinaryToggle .option.selected {
+  color: #fff;
+}
+
+.BinaryToggle .indicator.toggled {
+  left: calc(50% - 2px);
+}
+
+.BinaryToggle .indicator {
+  position: absolute;
+  width: 50%;
+  height: calc(100% - 4px);
+  background: #5d00f3;
+  border-radius: 3px;
+  top: 2px;
+  left: 2px;
+  z-index: 1;
+  -webkit-transition: left .15s ease-in-out;
+  transition: left .15s ease-in-out;
+}

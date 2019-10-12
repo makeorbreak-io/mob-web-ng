@@ -1,0 +1,40 @@
+fragment fullUser on User {
+    id
+    email
+    name
+    displayName
+    tshirtSize
+    githubHandle
+    role
+    gravatarHash
+    dataUsageConsent
+    spamConsent
+    shareConsent
+
+    currentAttendance { id checkedIn voterIdentity }
+
+    currentTeam {
+      id
+      name
+      applied
+      accepted
+      projectName
+
+      memberships { user { id displayName gravatarHash } }
+      invites { id gravatarHash displayName }
+    }
+
+    invitations {
+      id
+      host { id displayName }
+      team { id name }
+    }
+
+    workshops { id slug name }
+
+    favorites { id teamId }
+
+    currentBot: currentAiCompetitionBot {
+      id title revision sdk
+    }
+  }

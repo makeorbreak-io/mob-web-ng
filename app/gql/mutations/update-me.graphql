@@ -1,0 +1,5 @@
+#import 'mob-web-ng/gql/fragments/full-user'
+
+mutation updateMe($user: UserInput!) {
+  updateMe(user: $user) { ...fullUser }
+}

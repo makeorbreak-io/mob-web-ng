@@ -1,1 +1,63 @@
-{{outlet}}
+<h1>Your privacy and personal data</h1>
+
+<form {{on "submit" (fn this.submit @model.me)}}>
+<h2>Personal data we store</h2>
+
+<ul>
+  <li>Name</li>
+  <li>Email</li>
+  <li>T-shirt size</li>
+  <li>GitHub username</li>
+</ul>
+
+<h2>How we use your data during the main event</h2>
+
+<ul>
+  <li>We use your name to create a credential to identify you;</li>
+  <li>We use your t-shirt size to estimate the size distribution of the t-shirts given to participants;</li>
+  <li>We use your GitHub username to give you access to a Make or Break repository in the GitHub platform, so that you can participate in the Make or Break hackathon during our main event.</li>
+</ul>
+
+<ul class="settings">
+  <li>
+  <span>You give us permission to use your data during the main event</span>
+  <InputSlider
+    @name="data-usage-consent"
+    @checked={{this.model.me.dataUsageConsent}}
+    @onchange={{fn this.change this.model.me "dataUsageConsent"}}
+  />
+  </li>
+</ul>
+
+<h2>How we use your data to communicate with you</h2>
+<ul>
+<li>We use your name and email to send you email updates related to Make or Break, its main event, satellite events (like MoB Sessions), or other information we might consider relevant to the Make or Break community.</li>
+</ul>
+
+<ul class="settings">
+  <li>
+    <span>You give us permission to your data to communicate with you</span>
+    <InputSlider
+      @name="data-usage-consent"
+      @checked={{this.model.me.shareConsent}}
+      @onchange={{fn this.change this.model.me "shareConsent"}}
+    />
+  </li>
+</ul>
+
+<h2>How we share your data with our sponsors or partners</h2>
+<ul>
+  <li>We share your name and email with our sponsors or partners so they can get involved with the Make or Break community, by informing you about opportunities (like job offers) or important updates related to their company, institution, or core business;</li>
+</ul>
+<ul class="settings">
+  <li>
+    <span>You give us permission to share your personal data with our sponsors or partners</span>
+    <InputSlider
+      @name="data-usage-consent"
+      @checked={{this.model.me.spamConsent}}
+      @onchange={{fn this.change this.model.me "spamConsent"}}
+    />
+  </li>
+</ul>
+<button class="Button primary centered form onClick buttonRef dispatch" type="button">Save privacy settings</button>
+</form>

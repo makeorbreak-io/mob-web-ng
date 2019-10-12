@@ -1,1 +1,6 @@
-<h1>Nice to meet you, Hugo Peixoto</h1>
+<h1>Team</h1>
+<h1>Nice to meet you, {{@model.me.name}}</h1>
+
+<form {{on "submit" (fn this.submit @model.me)}}>
+  <button class="Button primary hollow form centered fullwidth onClick buttonRef dispatch" type="submit">Continue</button>
+</form>

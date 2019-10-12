@@ -1,16 +1,39 @@
 import Controller from '@ember/controller';
-import { action } from  '@ember/object'
+import { set, action } from  '@ember/object'
 import { inject as service } from '@ember/service'
+import updateMe from 'mob-web-ng/gql/mutations/update-me'
 
 export default class WelcomeYouController extends Controller {
   @service
   router
 
-  @action
-  submit(event) {
-    putInternet()
+  @service
+  apollo
 
-    this.router.transitionTo('welcome.team');
+  @service
+  welcome
+
+  @action
+  async submit(me, event) {
     event.preventDefault();
+
+    await this.apollo.mutate({
+      mutation: updateMe,
+      variables: { user: {
+        name: me.name,
+        tshirtSize: me.tshirtSize,
+      } },
+    });
+
+    if (this.welcome.interestedInParticipatingInHackathon) {
+      this.router.transitionTo('welcome.team');
+    } else {
+      this.router.transitionTo('welcome.privacy');
+    }
+  }
+
+  @action
+  tshirtsize(me, event) {
+    set(me, 'tshirtSize', event.target.value);
   }
 }

@@ -1,6 +1,8 @@
 <div class="TabList">
   <LinkTo @route="welcome.you">Your information</LinkTo>
-  <LinkTo @route="welcome.team">Your team</LinkTo>
+  {{#if this.welcome.interestedInParticipatingInHackathon}}
+    <LinkTo @route="welcome.team">Your team</LinkTo>
+  {{/if}}
   <LinkTo @route="welcome.privacy">Your privacy</LinkTo>
 </div>
 
