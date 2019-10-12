@@ -1,0 +1,30 @@
+<h1>Welcome to Make or Break</h1>
+
+<form {{on "submit" this.submit}}>
+  <label for="email">email</label>
+  <input type="text" name="email" value={{@model.me.email}} id="email" placeholder="Type your email" class="fullwidth" disabled>
+
+  <label for="name">Name</label>
+  <input type="text" name="name" value={{@model.me.name}} id="name" placeholder="Type your name" class="fullwidth">
+
+  <label for="tshirtSize">T-Shirt Size</label>
+  <select name="tshirtSize" id="tshirtSize" class="fullwidth">
+    <option value="" disabled="">Choose your t-shirt size</option>
+    <option value="XL" selected={{eq @model.me.tshirtSize "XL"}}>XL</option>
+    <option value="L" selected={{eq @model.me.tshirtSize "L"}}>L</option>
+    <option value="M" selected={{eq @model.me.tshirtSize "M"}}>M</option>
+    <option value="S" selected={{eq @model.me.tshirtSize "S"}}>S</option>
+  </select>
+
+  <label class="hackathon-participant clearfix">
+  <span>I am interested in participating in the Make or Break hackathon</span>
+  <div class="BinaryToggle">
+  <span class="indicator">
+  </span>
+  <span class="option selected">yes</span>
+  <span class="option">no</span>
+  </div>
+  </label>
+
+  <button class="Button primary hollow form centered fullwidth onClick buttonRef dispatch" type="submit">Continue</button>
+</form>
