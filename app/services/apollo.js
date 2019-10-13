@@ -1,13 +1,13 @@
 import OriginalApolloService from 'ember-apollo-client/services/apollo';
-import ENV from 'mob-web-ng/config/environment';
-import { setContext} from 'apollo-link-context';
+import { setContext } from 'apollo-link-context';
 
 export default class ApolloService extends OriginalApolloService {
   link() {
     let httpLink = super.link(...arguments);
+    const authorizationHeader = localStorage.getItem("jwt") ? `Bearer ${localStorage.getItem("jwt")}` : "";
 
     let authLink = setContext((request, context) => {
-      return { headers: { "Authorization": `Bearer ${ENV.TOKEN}` } };
+      return { headers: { "Authorization": authorizationHeader } };
     });
     return authLink.concat(httpLink);
   }

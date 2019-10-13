@@ -6,9 +6,18 @@ export default class WelcomePrivacyController extends Controller {
   @service
   router
 
+  @service
+  welcome
+
   @action
   async submit(me, event) {
     event.preventDefault();
+
+    if (this.welcome.interestedInParticipatingInHackathon) {
+      this.router.transitionTo('welcome.team');
+    } else {
+      this.router.transitionTo('dashboard');
+    }
   }
 
   @action
