@@ -20,18 +20,22 @@
 
   <ul class="settings">
     <li>
-    <span>You give us permission to use your data during the main event</span>
-    <InputSlider
-      @name="data-usage-consent"
-      @checked={{this.model.me.dataUsageConsent}}
-      @onchange={{fn this.change this.model.me "dataUsageConsent"}}
-    />
+      <span>You give us permission to use your data during the main event</span>
+      <InputSlider
+        @name="data-usage-consent"
+        @checked={{this.model.me.dataUsageConsent}}
+        @onchange={{fn this.change this.model.me "dataUsageConsent"}}
+      />
     </li>
   </ul>
 
   <h2>How we use your data to communicate with you</h2>
   <ul>
-  <li>We use your name and email to send you email updates related to Make or Break, its main event, satellite events (like MoB Sessions), or other information we might consider relevant to the Make or Break community.</li>
+    <li>
+      We use your name and email to send you email updates related to Make or
+      Break, its main event, satellite events (like MoB Sessions), or other
+      information we might consider relevant to the Make or Break community.
+    </li>
   </ul>
 
   <ul class="settings">
@@ -47,7 +51,12 @@
 
   <h2>How we share your data with our sponsors or partners</h2>
   <ul>
-    <li>We share your name and email with our sponsors or partners so they can get involved with the Make or Break community, by informing you about opportunities (like job offers) or important updates related to their company, institution, or core business;</li>
+    <li>
+      We share your name and email with our sponsors or partners so they can
+      get involved with the Make or Break community, by informing you about
+      opportunities (like job offers) or important updates related to their
+      company, institution, or core business;
+    </li>
   </ul>
   <ul class="settings">
     <li>
@@ -63,5 +72,5 @@
     class="Button primary centered form onClick buttonRef dispatch"
     type="submit"
     value="Save privacy settings"
-  />
+  >
 </form>

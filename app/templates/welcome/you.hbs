@@ -26,7 +26,7 @@
 
   <div>
     <label for="tshirtSize">T-Shirt Size</label>
-    <select name="tshirtSize" id="tshirtSize" class="fullwidth" {{on 'change' (fn this.tshirtsize @model.me)}}>
+    <select name="tshirtSize" id="tshirtSize" class="fullwidth" {{on "change" (fn this.tshirtsize @model.me)}}>
       <option value="" disabled="">Choose your t-shirt size</option>
       <option value="XL" selected={{eq @model.me.tshirtSize "XL"}}>XL</option>
       <option value="L" selected={{eq @model.me.tshirtSize "L"}}>L</option>
@@ -37,13 +37,13 @@
 
   <div>
     <label class="hackathon-participant clearfix">
-    <span>I am interested in participating in the Make or Break hackathon</span>
+      <span>I am interested in participating in the Make or Break hackathon</span>
 
-    <InputSlider
-      @name="data-usage-consent"
-      @checked={{this.welcome.interestedInParticipatingInHackathon}}
-      @onchange={{fn this.change this.welcome "interestedInParticipatingInHackathon"}}
-    />
+      <InputSlider
+        @name="data-usage-consent"
+        @checked={{this.welcome.interestedInParticipatingInHackathon}}
+        @onchange={{fn this.change this.welcome "interestedInParticipatingInHackathon"}}
+      />
     </label>
   </div>
 

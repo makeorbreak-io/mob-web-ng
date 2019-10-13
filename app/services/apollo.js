@@ -6,9 +6,9 @@ export default class ApolloService extends OriginalApolloService {
     let httpLink = super.link(...arguments);
     const authorizationHeader = localStorage.getItem("jwt") ? `Bearer ${localStorage.getItem("jwt")}` : "";
 
-    let authLink = setContext((request, context) => {
-      return { headers: { "Authorization": authorizationHeader } };
-    });
+    let authLink = setContext(() => ({
+      headers: { "Authorization": authorizationHeader },
+    }));
     return authLink.concat(httpLink);
   }
 }

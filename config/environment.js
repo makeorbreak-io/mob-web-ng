@@ -24,7 +24,6 @@ module.exports = function(environment) {
     },
 
     API_URL: process.env.API_URL,
-    TOKEN: process.env.TOKEN,
 
     apollo: {
       apiURL: process.env.API_URL,
