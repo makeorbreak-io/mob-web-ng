@@ -36,4 +36,9 @@ export default class WelcomeYouController extends Controller {
   tshirtsize(me, event) {
     set(me, 'tshirtSize', event.target.value);
   }
+
+  @action
+  change(me, field, value) {
+    set(me, field, value);
+  }
 }
