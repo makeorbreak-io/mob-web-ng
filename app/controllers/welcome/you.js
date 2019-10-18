@@ -25,11 +25,7 @@ export default class WelcomeYouController extends Controller {
       } },
     });
 
-    if (this.welcome.interestedInParticipatingInHackathon) {
-      this.router.transitionTo('welcome.team');
-    } else {
-      this.router.transitionTo('welcome.privacy');
-    }
+    this.router.transitionTo('welcome.privacy');
   }
 
   @action

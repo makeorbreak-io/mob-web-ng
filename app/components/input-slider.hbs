@@ -1,5 +1,5 @@
-<div class="BinaryToggle" {{on 'click' (fn @onchange (not @checked))}}>
-  <span class="indicator {{if @checked 'toggled'}}"></span>
-  <span class="option {{unless @checked 'selected'}}">No</span>
-  <span class="option {{if @checked 'selected'}}">Yes</span>
+<div class="BinaryToggle" {{on "click" (fn @onchange (not @checked))}}>
+  <span class="indicator {{if @checked "toggled"}}"></span>
+  <span class="option {{unless @checked "selected"}}">No</span>
+  <span class="option {{if @checked "selected"}}">Yes</span>
 </div>
